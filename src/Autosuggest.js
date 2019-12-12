@@ -669,8 +669,6 @@ export default class Autosuggest extends Component {
             if (highlightedSuggestion != null) {
               const newValue = getSuggestionValue(highlightedSuggestion);
 
-              this.maybeCallOnChange(event, newValue, 'enter');
-
               this.onSuggestionSelected(event, {
                 suggestion: highlightedSuggestion,
                 suggestionValue: newValue,
@@ -685,6 +683,8 @@ export default class Autosuggest extends Component {
                 this.justSelectedSuggestion = false;
               });
             }
+
+            this.maybeCallOnChange(event, newValue, 'enter');
 
             break;
           }
